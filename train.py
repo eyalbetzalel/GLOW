@@ -17,7 +17,7 @@ device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 
 parser = argparse.ArgumentParser(description='Glow trainer')
 parser.add_argument('--batch', default=16, type=int, help='batch size')
-parser.add_argument('--iter', default=200000, type=int, help='maximum iterations')
+parser.add_argument('--iter', default=20000, type=int, help='maximum iterations')
 parser.add_argument(
     '--n_flow', default=32, type=int, help='number of flows in each block'
 )
@@ -142,7 +142,7 @@ def train(args, model, optimizer):
                         range=(-0.5, 0.5),
                     )
 
-            if i % 10000 == 0:
+            if i % 500 == 0:
                 torch.save(
                     model.state_dict(), f'checkpoint/model_{str(i + 1).zfill(6)}.pt'
                 )
