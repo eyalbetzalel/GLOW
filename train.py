@@ -19,7 +19,7 @@ parser = argparse.ArgumentParser(description='Glow trainer')
 parser.add_argument('--batch', default=16, type=int, help='batch size')
 parser.add_argument('--iter', default=200000, type=int, help='maximum iterations')
 parser.add_argument(
-    '--n_flow', default=32, type=int, help='number of flows in each block'
+    '--n_flow', default=40, type=int, help='number of flows in each block'
 )
 parser.add_argument('--n_block', default=5, type=int, help='number of blocks')
 parser.add_argument(
