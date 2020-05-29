@@ -16,7 +16,7 @@ from model import Glow
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 
 parser = argparse.ArgumentParser(description='Glow trainer')
-parser.add_argument('--batch', default=16, type=int, help='batch size')
+parser.add_argument('--batch', default=8, type=int, help='batch size')
 parser.add_argument('--iter', default=200000, type=int, help='maximum iterations')
 parser.add_argument(
     '--n_flow', default=32, type=int, help='number of flows in each block'
