@@ -161,9 +161,9 @@ if __name__ == '__main__':
     model = nn.DataParallel(model_single)
     # model = model_single
     model = model.to(device)
-    model.state_dict(torch.load('checkpoint/model_012001.pt', map_location=lambda storage, loc: storage))
-
+    model.load_state_dict(torch.load('checkpoint/model_012001.pt', map_location=lambda storage, loc: storage))
     optimizer = optim.Adam(model.parameters(), lr=args.lr)
-    optimizer.state_dict(torch.load('checkpoint/optim_012001.pt', map_location=lambda storage, loc: storage))
+    optimizer.load_state_dict(torch.load('checkpoint/optim_012001.pt', map_location=lambda storage, loc: storage))
+
 
     train(args, model, optimizer)
