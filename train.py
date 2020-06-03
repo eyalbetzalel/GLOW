@@ -163,8 +163,8 @@ if __name__ == '__main__':
     model = model.to(device)
     model.load_state_dict(torch.load('checkpoint/model_106001.pt', map_location=lambda storage, loc: storage))
     optimizer = optim.Adam(model.parameters(), lr=args.lr)
-    torch.cuda.set_device(0)  # adding this line fixed it
-    optimizer.load_state_dict(torch.load('checkpoint/optim_106001.pt', map_location=lambda storage, loc: storage))
+    #torch.cuda.set_device(0)  # adding this line fixed it
+    #optimizer.load_state_dict(torch.load('checkpoint/optim_106001.pt', map_location=lambda storage, loc: storage))
 
 
     train(args, model, optimizer)
