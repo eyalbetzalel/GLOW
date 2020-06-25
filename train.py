@@ -13,7 +13,8 @@ from torchvision import datasets, transforms, utils
 
 from model import Glow
 
-device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
+#device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
+device = torch.device('cuda')
 
 parser = argparse.ArgumentParser(description='Glow trainer')
 parser.add_argument('--batch', default=16, type=int, help='batch size')
