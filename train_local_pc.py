@@ -152,15 +152,6 @@ def train(args, model, optimizer):
                 )
 
 
-def z_new_sample():
-
-    z_sample = []
-    z_shapes = calc_z_shapes(3, args.img_size, args.n_flow, args.n_block)
-    for z in z_shapes:
-        z_new = torch.randn(args.n_sample, *z) * args.temp
-        z_sample.append(z_new.to(device))
-        return z_sample
-
 if __name__ == '__main__':
     args = parser.parse_args()
     print(args)
@@ -178,9 +169,12 @@ if __name__ == '__main__':
     model.eval()
 
 
-    for i in range(5):
-        z_sample =[]
-        z_sample = z_new_sample()
+    for i in range(3):
+        z_sample = []
+        z_shapes = calc_z_shapes(3, args.img_size, args.n_flow, args.n_block)
+        for z in z_shapes:
+            z_new = torch.randn(args.n_sample, *z) * args.temp
+            z_sample.append(z_new.to(device))
         with torch.no_grad():
             utils.save_image(
                 model_single.reverse(z_sample).cpu().data,
