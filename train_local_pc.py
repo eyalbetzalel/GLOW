@@ -179,6 +179,7 @@ if __name__ == '__main__':
 
 
     for i in range(5):
+        z_sample =[]
         z_sample = z_new_sample()
         with torch.no_grad():
             utils.save_image(
